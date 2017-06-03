@@ -3,6 +3,7 @@ function Library(name, creator) {
   this.name = name;
   this.creator = creator;
 
+  // pushing each new playlist added to the playlists array
   this.addPlaylist = function(newPlaylist) {
     this.playlists.push(newPlaylist);
   };
@@ -11,14 +12,18 @@ function Library(name, creator) {
 function Playlist(name) {
   this.tracks = [];
   this.name = name;
+
+  //pushing each new track that is added to the tracks array
   this.addTrack = function(newTrack) {
     this.tracks.push(newTrack);
   };
+  // takes in the length of all tracks and calculates the total
   this.totalDuration = function() {
     return this.tracks.reduce(function(acc, val) {
       return acc + val.length;
     }, 0);
   };
+  // takes in the ratings for all tracks and calculates the average
   this.overallRating = function() {
     return this.tracks.reduce(function(acc, val) {
       return (acc + val.rating) / [val.tracks].length;
@@ -49,6 +54,6 @@ p02.addTrack(new Track("Love Song", 1, 3));
 p03.addTrack(new Track("I Hate You", 4, 1.75));
 p03.addTrack(new Track("You Did it Now", 3, 2));
 p03.addTrack(new Track("Rock'n Roll is Dead", 5, 1));
+
 console.log(p03.totalDuration());
 console.log(p02.overallRating());
-//console.log(JSON.stringify(theLibrary);
